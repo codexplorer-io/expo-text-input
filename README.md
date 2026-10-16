@@ -8,10 +8,10 @@ A theme-integrated, multi-state `TextInput` component for Expo and React Native 
 yarn add @codexporer.io/expo-text-input
 ```
 
-Ensure peer dependencies are installed:
-```bash
-yarn add @codexporer.io/expo-app-theme
-```
+Peer dependencies:
+- `react` (`*`)
+- `react-native` (`*`)
+- `@codexporer.io/expo-app-theme` (`*`)
 
 ## Quick Start
 
@@ -26,10 +26,11 @@ export function ExampleScreen() {
     return (
         <View style={styles.container}>
             <TextInput
-                label='Username'
+                label="Username"
                 value={text}
                 onChangeText={setText}
-                placeholder='Enter your username'
+                placeholder="Enter your username"
+                variant={TextInputVariant.Outlined}
             />
         </View>
     );
@@ -51,11 +52,12 @@ Extends standard React Native `TextInputProps` (excluding `editable`).
 | `variant` | `TextInputVariant` | `TextInputVariant.Outlined` | Visual variant: `Outlined`, `Flat`, or `Standard` |
 | `isInvalid` | `boolean` | `false` | Highlights border with `theme.error` |
 | `errorText` | `string` | — | Error message rendered beneath the input; automatically marks input as invalid |
-| `label` | `string` | — | Label text rendered above the input |
+| `label` | `string` | — | Label text rendered above the input (colored with `theme.text`) |
 | `labelStyle` | `StyleProp<TextStyle>` | — | Label typography style override |
-| `disabled` | `boolean` | `false` | Disables input (`editable={false}`) and applies dimmed styling |
-| `containerStyle` | `StyleProp<ViewStyle>` | — | Outer container style override |
+| `disabled` | `boolean` | `false` | Disables input (`editable={false}`) and applies dimmed opacity (`0.5`) |
+| `containerStyle` | `StyleProp<ViewStyle>` | — | Outer wrapper container style override |
 | `style` | `StyleProp<TextStyle>` | — | Inner `TextInput` text style override |
+| `placeholderTextColor` | `string` | `theme.placeholder` | Color of placeholder text |
 | `autoCapitalize` | `'none' \| 'sentences' \| 'words' \| 'characters'` | `'none'` | Capitalization behavior |
 | `autoCorrect` | `boolean` | `false` | Whether auto-correct is enabled |
 | `left` | `React.ReactNode` | — | Accessory element rendered on the left |
